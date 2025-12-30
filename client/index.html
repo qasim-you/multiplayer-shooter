@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Multiplayer Shooter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Lobby Screen -->
+    <div id="lobby-screen">
+        <div class="lobby-box">
+            <h1>Neon Shooter</h1>
+            <input type="text" id="username" placeholder="Enter Username" maxlength="15">
+            <input type="text" id="room-id" placeholder="Room Name" value="arena1">
+            <button id="join-btn">Join Game</button>
+            <div class="controls-info">
+                <p>WASD to Move | Click to Shoot</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" style="display: none;">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- Death Overlay -->
+        <div id="death-overlay" style="display: none;">
+            <h2>YOU DIED</h2>
+            <p>Respawning in <span id="respawn-timer">3</span>s...</p>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud">
+            <!-- Leaderboard -->
+            <div id="leaderboard">
+                <h3>LEADERBOARD</h3>
+                <div id="leaderboard-list">
+                    <!-- Players will be listed here -->
+                </div>
+            </div>
+
+            <div class="hud-bottom">
+                <div id="health-bar-container">
+                    <div id="health-bar"></div>
+                    <span id="health-text">100 / 100</span>
+                </div>
+                
+                <div class="stats-row">
+                    <div id="ammo-counter"><span class="icon">🔫</span> ∞</div>
+                    <div id="score-counter"><span class="icon">🏆</span> 0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kill Feed -->
+        <div id="kill-feed"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
