@@ -1,6 +1,4 @@
-// Use a production URL if on Vercel (you will change this URL after deploying the backend)
-const BACKEND_URL = window.location.hostname === 'localhost' ? '' : 'https://YOUR-RENDER-BACKEND-URL-HERE.onrender.com';
-const socket = io(BACKEND_URL, { transports: ['websocket', 'polling'] });
+const socket = io();
 
 // DOM Elements
 const lobbyScreen = document.getElementById('lobby-screen');
